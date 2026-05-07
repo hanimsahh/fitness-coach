@@ -1,0 +1,171 @@
+{
+  "chest": {
+    "barbell": [
+      "Bench Press",
+      "Decline Bench Press Barbell",
+      "Pause Bench",
+      "Reverse Grip Bench Press",
+      "Incline Bench Press - Barbell"
+    ],
+    "dumbbell": [
+      "Benchpress Dumbbells",
+      "Cross-Bench Dumbbell Pullovers",
+      "Decline Bench Press Dumbbell",
+      "Fly With Dumbbells",
+      "Fly With Dumbbells, Decline Bench"
+    ],
+    "bodyweight": [
+      "Bear Walk 2",
+      "Decline Pushups",
+      "Dips",
+      "Isometric Wipers",
+      "Diamond push ups"
+    ]
+  },
+  "back": {
+    "barbell": [
+      "Bent Over Rowing",
+      "Bent Over Rowing Reverse",
+      "Deadlifts",
+      "Front pull wide",
+      "Front Pull narrow"
+    ],
+    "dumbbell": [
+      "Bent Over Dumbbell Rows",
+      "Cross-Bench Dumbbell Pullovers",
+      "Renegade Row",
+      "Row",
+      "LYING DUMBBELL ROW SS SEATED SHRUG"
+    ],
+    "bodyweight": [
+      "TRX Rows",
+      "Close-grip Press-ups",
+      "Rowing Machine",
+      "Walking",
+      "Inverted Rows"
+    ]
+  },
+  "shoulders": {
+    "barbell": [
+      "Reverse Curl"
+    ],
+    "dumbbell": [
+      "Dumbbell Concentration Curl",
+      "Reverse Curl",
+      "Standing Bicep Curl",
+      "Dumbbell rear delt row",
+      "Seated W Curl"
+    ],
+    "bodyweight": [
+      "Close-grip Press-ups",
+      "Rowing Machine",
+      "Frog stand",
+      "Bench Dips On Floor HD"
+    ]
+  },
+  "biceps": {
+    "barbell": [
+      "Biceps Curls With Barbell",
+      "Reverse Curl",
+      "Reverse Grip Barbell Curls"
+    ],
+    "dumbbell": [
+      "Biceps Curls With Dumbbell",
+      "Dumbbell Incline Curl",
+      "Hammer Curls",
+      "Reverse Curl",
+      "Single-arm Preacher Curl"
+    ],
+    "bodyweight": [
+      "Wall Slides",
+      "Biceps with TRX",
+      "TRX Rows",
+      "Rowing Machine",
+      "Inverted Rows"
+    ]
+  },
+  "triceps": {
+    "barbell": [
+      "Barbell Triceps Extension",
+      "Bench Press Narrow Grip",
+      "Reverse Grip Bench Press",
+      "JM Press",
+      "Pin Bench Press BB"
+    ],
+    "dumbbell": [
+      "Dumbbell Triceps Extension",
+      "Skullcrusher Dumbbells",
+      "Seated Triceps Press",
+      "Tricep Dumbbell Kickback",
+      "Dumbbell Bent Over Row"
+    ],
+    "bodyweight": [
+      "Bear Walk 2",
+      "Dips",
+      "Handstand Pushup",
+      "Wall Pushup",
+      "Wall Slides"
+    ]
+  },
+  "legs": {
+    "barbell": [
+      "Barbell Lunges Standing",
+      "Low Box Squat - Wide Stance",
+      "Squats",
+      "Pin Squat",
+      "Clean"
+    ],
+    "dumbbell": [
+      "Dumbbell Goblet Squat",
+      "Dumbbell Lunges Standing",
+      "Dumbbell Lunges Walking",
+      "Blaze",
+      "Dumbbell Front Squat"
+    ],
+    "bodyweight": [
+      "Squat Thrust",
+      "Sumo Squats",
+      "Wall Squat",
+      "Elliptical",
+      "Box squat"
+    ]
+  },
+  "glutes": {
+    "barbell": [
+      "Front Squats",
+      "Hip Thrust",
+      "Low Box Squat - Wide Stance",
+      "Barbell Hip Thrust",
+      "Dumbbell Single-leg Hip Thrust"
+    ],
+    "dumbbell": [
+      "Turkish Get-Up",
+      "Dumbbell Frog Press",
+      "Devil\u2019s Press",
+      "Patada de burro con mancuerna",
+      "Blaze"
+    ],
+    "bodyweight": [
+      "Full Sit Outs",
+      "Squat Thrust",
+      "Sumo Squats",
+      "Quadriped Arm and Leg Raise",
+      "Elliptical"
+    ]
+  },
+  "abs": {
+    "barbell": [],
+    "dumbbell": [
+      "Russian Twist",
+      "Dumbbell Crunches",
+      "Bear crawl pull through"
+    ],
+    "bodyweight": [
+      "Bear Walk 2",
+      "Full Sit Outs",
+      "Hollow Hold",
+      "Plank",
+      "Side Plank"
+    ]
+  }
+}
