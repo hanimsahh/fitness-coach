@@ -49,18 +49,24 @@ def analyze_food_image(base64_image):
         image_part = Part.from_data(data=image_bytes, mime_type="image/jpeg")
         model = GenerativeModel('gemini-2.5-flash')
         prompt = """You are a nutrition expert. Analyze this food image:
-1. What food you can see
-2. Estimated calorie range
-3. Approximate macros: protein, carbs, fat
+            1. What food you can see
+            2. Estimated calorie range
+            3. Approximate macros: protein, carbs, fat
 
-Format:
-🍽️ I can see: [description]
-💪 Protein: ~[X]g | Carbs: ~[X]g | Fat: ~[X]g
-💬 [coaching note]"""
+            Format:
+            🍽️ I can see: [description]
+            💪 Protein: ~[X]g | Carbs: ~[X]g | Fat: ~[X]g
+            [coaching note]
+            """
         response = model.generate_content([prompt, image_part])
-        return response.text
+
+        if hasattr(response, "text") and response.text:
+            return response.text
+        else:
+            return "Got it! Let's continue with your fitness plan."
+
     except Exception as e:
-        return f"I couldn't analyze the image. Try describing what you ate! (Error: {str(e)[:60]})"
+        return f"I couldn't analyze the image. Error: {str(e)[:60]}"
 
 @app.route('/')
 def index():
@@ -183,7 +189,7 @@ def chat():
     
     _vision_followups = ['i had this meal', 'this meal', 'log this', 'that meal', 'i just had this']
     _is_vision_followup = any(k in msg.lower() for k in _vision_followups)
-    if _meal_match and not _is_vision_followup and any(k in msg.lower() for k in ['i had', 'i ate', 'for breakfast', 'for lunch', 'for dinner', 'i just had']):
+    if _meal_match and not _is_vision_followup and image_data is None and any(k in msg.lower() for k in ['i had', 'i ate', 'for breakfast', 'for lunch', 'for dinner', 'i just had']):
         try:
             from fitness_coach.memory import save_meal
             _food_name = msg.lower()
@@ -193,7 +199,16 @@ def chat():
                 _food_name = _food_name.replace(prefix, '')
             # Remove "A plate featuring..." type descriptions
             import re as _re_name
-            _food_name = _re_name.sub(r'^(a plate (?:featuring|with|of)|a bowl of|a serving of|a generous|a generous serving of|sliced|grilled|pan-fried)\s+', '', _food_name, flags=_re_name.IGNORECASE)
+            _food_name = _re_name.sub(
+                r'^(a\s+classic\s+meal\s+featuring|a\s+plate\s+(?:featuring|with|of)|a\s+bowl\s+of|a\s+serving\s+of|a\s+generous|a\s+generous\s+serving\s+of)\s+'
+                '',
+                _food_name,
+                flags=_re_name.IGNORECASE
+            )
+            _food_name = _food_name.replace('sliced, ', '')
+            _food_name = _food_name.replace('grilled or pan-seared ', '')
+            _food_name = _food_name.replace('grilled ', '')
+            _food_name = _food_name.replace('pan-seared ', '')
             _food_name = _food_name.split(',')[0].split(' and ')[0].split(' served')[0].strip()
             _food_name = _re.sub(r'\s+for\s+(breakfast|lunch|dinner|snack)', '', _food_name, flags=_re.IGNORECASE).strip()
             _food_name = _food_name.strip(' .,!?').capitalize()

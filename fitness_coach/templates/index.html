@@ -962,7 +962,7 @@ function hideMSel(){document.getElementById('msel').style.display='none';pFood=n
 function selMeal(t){
   var f=pFood;hideMSel();if(!f)return;
   var food=f==='this meal'?lastPhotoFood||'this meal':f;
-  var msg='I had '+food+' for '+t.toLowerCase();
+  var msg='log this for '+t.toLowerCase();
   addMsg('user',msg);showTyp();
   fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,username:UN})})
     .then(function(r){return r.json();}).then(function(d){hideTyp();addMsg('coach',d.reply);loadDash();}).catch(function(){hideTyp();});
