@@ -25,14 +25,30 @@ def ask_agent(msg, username):
     try:
         from google.genai.types import Content, Part
         runner, sid = get_runner(username)
+
         async def _run():
             out = ""
-            async for ev in runner.run_async(user_id=username, session_id=sid,
-                new_message=Content(role="user", parts=[Part(text=msg)])):
+
+            async for ev in runner.run_async(
+                user_id=username,
+                session_id=sid,
+                new_message=Content(role="user", parts=[Part(text=msg)])
+            ):
                 if ev.is_final_response() and ev.content and ev.content.parts:
-                    out = ev.content.parts[0].text
+
+                    texts = []
+
+                    for p in ev.content.parts:
+                        if hasattr(p, "text") and p.text:
+                            texts.append(p.text)
+
+                    if texts:
+                        out = " ".join(texts)
+
             return out
+
         return _loop.run_until_complete(_run()) or "I'm here, try again."
+
     except Exception as e:
         return f"Error: {str(e)[:100]}"
 
