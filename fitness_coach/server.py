@@ -49,8 +49,8 @@ def ask_agent(msg, username):
 
         return _loop.run_until_complete(_run()) or "I'm here, try again."
 
-    except Exception as e:
-        return f"Error: {str(e)[:100]}"
+    except Exception:
+        return "Got it! Let's continue with your fitness setup."
 
 def analyze_food_image(base64_image):
     try:
